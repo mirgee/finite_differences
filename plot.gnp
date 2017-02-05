@@ -1,0 +1,18 @@
+#!/usr/bin/gnuplot
+
+set term postscript
+set out 'plot.ps'
+
+set samples 1300
+
+alpha = 2.3
+beta = 2.7
+
+set xr [pi/2:7*pi/8]
+set yr [2:3]
+
+c1 = alpha
+c2 = (0.60273 * c1 - (beta)) / 0.79794
+sol(x) = c1 * cos(cos(x)) + c2 * sin(cos(x))
+
+plot 'out.txt' w l, sol(x)
